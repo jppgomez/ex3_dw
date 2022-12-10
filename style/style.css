@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  background-color: #1E1E1E;
+  color: #ffffff;
+  display: grid;
+  -moz-column-gap: 1.5625vw;
+       column-gap: 1.5625vw;
+  grid-template-columns: repeat(9, 9.6875vw);
+  row-gap: 1.5625vw;
+  grid-template-rows: repeat(20, 11.9444444444vh);
+}
+
+header {
+  display: grid;
+  grid-template: inherit;
+  grid-gap: inherit;
+  background-color: blue;
+  grid-column: 1/10;
+  grid-row: 1/2;
+}
+header [class*=design] {
+  grid-column: 3/4;
+  height: 11.9444444444vh;
+}
+
+div {
+  border: solid red 1px;
+}
+
+.about_text {
+  grid-column: 1/10;
+  grid-row: 2/7;
+}
+
+.skills_1 {
+  grid-column: 2/5;
+  grid-row: 8/11;
+}
+
+.skills_2 {
+  grid-column: 2/5;
+  grid-row: 11/14;
+}
+
+.about_images {
+  grid-column: 5/9;
+  grid-row: 8/14;
+}
+
+.education {
+  grid-column: 2/9;
+  grid-row: 15/17;
+}
+
+.about_contacts {
+  grid-column: 2/9;
+  grid-row: 17/19;
+}
+
+footer {
+  background-color: green;
+  grid-column: 1/10;
+  grid-row: 20/21;
+}/*# sourceMappingURL=style.css.map */
