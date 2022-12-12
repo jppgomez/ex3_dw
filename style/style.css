@@ -1,30 +1,55 @@
 body {
+  width: 100vw;
   margin: 0;
-  background-color: #1E1E1E;
-  color: #ffffff;
+  overflow-x: hidden;
+  background-color: #1e1e1e;
+  color: rgb(137, 137, 137);
   display: grid;
   -moz-column-gap: 1.5625vw;
        column-gap: 1.5625vw;
   grid-template-columns: repeat(9, 9.6875vw);
   row-gap: 1.5625vw;
   grid-template-rows: repeat(20, 11.9444444444vh);
+  font-family: Lack, sans-serif;
+  box-sizing: border-box;
 }
 
 header {
   display: grid;
+  border: 0.3125vw 0px;
   grid-template: inherit;
   grid-gap: inherit;
-  background-color: blue;
+  border-color: #1B1B1B;
+  background-color: #1B1B1B;
   grid-column: 1/10;
   grid-row: 1/2;
+  filter: drop-shadow(0px 5px 5px #171717);
+  font-size: 0.78125vw;
+}
+header a {
+  display: flex;
+  color: rgb(137, 137, 137);
+  text-decoration: none;
+  text-align: center;
+  width: 9.6875vw;
+  height: 11.9444444444vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+header [class*=header] {
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 header [class*=design] {
   grid-column: 3/4;
-  height: 11.9444444444vh;
 }
-
-div {
-  border: solid red 1px;
+header [class*="3d_icon"] {
+  width: 9.6875vw;
+  height: 11.9444444444vh;
 }
 
 .about_text {
