@@ -1,8 +1,11 @@
 @use "sass:math";
-$bg_black: #1e1e1e;
+$bg_black: #0c0c0c;
 $accent_black: #1B1B1B;
-$white: rgb(137,137,137);
+$white: rgb(220,220,220);
+$red: #D90429;
 $title_font: Lack, sans-serif;
+$mono_font: Roboto Mono, monospace;
+$script_font: Permanent Marker Regular, cursive;
 $desktop_col: math.div(186px, 1920px)*100vw;
 $desktop_row: math.div(129px, 1080px)*100vh;
 $desktop_gap: math.div(30px, 1920px)*100vw;
@@ -27,12 +30,13 @@ header{
     border: $desktop_gap /5 0px;
     grid-template: inherit;
     grid-gap: inherit;
-    border-color: $accent_black;
-    background-color: $accent_black;
+
     grid-column: 1 / 10;
     grid-row: 1 / 2;
     filter: drop-shadow(0px 5px 5px #171717);
     font-size: $desktop_gap / 2;
+
+    border-bottom: $white 1px solid;
 
     a{
         display: flex;
@@ -66,9 +70,34 @@ div{
     //border: solid red 1px;
 }
 
-.about_text{
-    grid-column: 1 / 10;
-    grid-row:  2 / 7;
+[class*='about_text']{
+    display: flex;
+    font-size: $desktop_col / 5;
+    grid-column: 2 / 9;
+    grid-row:  2 / 8;
+    text-align: center;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    
+    border-bottom: $white 1px solid;
+
+    [class*="base"]{
+        z-index: 1;
+        color: $white;  
+        font-family: $mono_font;
+    }
+
+    [class*="hide"]{
+        opacity: 0;
+    } 
+
+    [class*="over"]{
+        z-index: 2;
+        color: $red;
+        font-family: $script_font;
+    }
 }
 
 .skills_1{
@@ -102,4 +131,8 @@ footer{
     grid-row: 20 / 21;
 }
 //[class*='']{}
-
+//ANIMS
+.puff-in-center{-webkit-animation:puff-in-center .5s ease-in both;animation:puff-in-center .5s ease-in both}
+@-webkit-keyframes puff-in-center{0%{-webkit-transform:scale(2);transform:scale(2);-webkit-filter:blur(4px);filter:blur(4px);opacity:0}100%{-webkit-transform:scale(1);transform:scale(1);-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes puff-in-center{0%{-webkit-transform:scale(2);transform:scale(2);-webkit-filter:blur(4px);filter:blur(4px);opacity:0}100%{-webkit-transform:scale(1);transform:scale(1);-webkit-filter:blur(0);filter:blur(0);opacity:1}}
+.puff-out-center{-webkit-animation:puff-out-center .5s ease-out both;animation:puff-out-center .5s ease-out both}
+ @-webkit-keyframes puff-out-center{0%{-webkit-transform:scale(1);transform:scale(1);-webkit-filter:blur(0);filter:blur(0);opacity:1}100%{-webkit-transform:scale(2);transform:scale(2);-webkit-filter:blur(4px);filter:blur(4px);opacity:0}}@keyframes puff-out-center{0%{-webkit-transform:scale(1);transform:scale(1);-webkit-filter:blur(0);filter:blur(0);opacity:1}100%{-webkit-transform:scale(2);transform:scale(2);-webkit-filter:blur(4px);filter:blur(4px);opacity:0}}
