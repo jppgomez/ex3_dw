@@ -54,7 +54,7 @@ header [class*="3d_icon"] {
 [class*=about_text] {
   display: flex;
   font-size: 1.9375vw;
-  grid-column: 2/9;
+  grid-column: 1/10;
   grid-row: 2/8;
   text-align: center;
   flex-wrap: wrap;
