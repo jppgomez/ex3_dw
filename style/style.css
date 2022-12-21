@@ -51,6 +51,10 @@ header [class*="3d_icon"] {
   height: 11.9444444444vh;
 }
 
+div {
+  /*border: solid red 1px;
+*/}
+
 [class*=about_text] {
   display: flex;
   font-size: 1.9375vw;
@@ -87,8 +91,13 @@ header [class*="3d_icon"] {
   grid-row: 11/14;
 }
 
+li{
+  list-style-type: none;
+  display: inline-flex;
+}
+
 .about_images {
-  grid-column: 5/9;
+  grid-column: 5/10;
   grid-row: 8/14;
 }
 

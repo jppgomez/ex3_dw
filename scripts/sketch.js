@@ -14,7 +14,7 @@ function preload(){
   text_font = loadFont("../assets/lack-regular.otf");
   paint_font = loadFont("../assets/baguette.otf");
   for(let k=0; k<13; k++) {
-    clicked_text[k] = loadImage("../assets/text-gifs/"+k+".gif");
+    clicked_text[k] = "a"//loadImage("../assets/text-gifs/"+k+".gif");
   }
 }
 

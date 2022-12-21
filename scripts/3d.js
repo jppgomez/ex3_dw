@@ -21,3 +21,8 @@ app_about.load('https://prod.spline.design/A2NwSzZ7-eyfn6RE/scene.splinecode');
 const canvas_contact = document.getElementById('canvas3d_contact');
 const app_contact = new Application(canvas_contact);
 app_contact.load('https://prod.spline.design/UTBu2HcNZR9-xraQ/scene.splinecode');
+
+//ABOUT - IMGS
+const canvas_about_img = document.getElementById('canvas3d_about_images');
+const app_about_img = new Application(canvas_about_img);
+app_about_img.load('https://prod.spline.design/ctNRQ7nCRBhxLfkm/scene.splinecode');
