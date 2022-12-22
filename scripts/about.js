@@ -1,4 +1,23 @@
 
-const canvas_about_img = document.getElementById('canvas3d_about_images');
-const app_about_img = new Application(canvas_about_img);
-app_about_img.load('https://prod.spline.design/ctNRQ7nCRBhxLfkm/scene.splinecode');
+function design_skills_bar(n){
+    let bar = document.querySelector(".design_skills_bar");
+    bar.style.width != '0%';
+
+    if(n==0){
+        bar.style.width = '70%';
+
+    }
+    //if(n)
+    //set barpercentage
+    //set layer
+}
+
+function prog_skills_bar(n){
+    let bar = document.querySelector(".prog_skills_bar");
+    bar.style.width != '0%';
+
+    if(n==0){
+        bar.style.width = '70%';
+
+    }
+}

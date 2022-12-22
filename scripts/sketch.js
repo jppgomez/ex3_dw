@@ -31,7 +31,7 @@ function setup() {
 
 function draw() {
   background(color('#0c0c0c'));
-  console.log(clicked_text[0].width);
+  //console.log(clicked_text[0].width);
   for(let w=0; w<words.length; w++){
     let bbx = text_font.textBounds(words[w].text, words[w].px, words[w].py);
     if(mouseX >= words[w].px && mouseX <= words[w].px + bbx.w && mouseY >= words[w].py-bbx.h && mouseY <= words[w].py){
@@ -51,6 +51,7 @@ function draw() {
 }
 
 function mousePressed(){
+  if(mouseX >= 0 && mouseX <= w && mouseY >= 0 && mouseY <= h){
   for(let l=0; l<clicked_text.length; l++) {
     clicked_text[l].pause();
     clicked_text[l].setFrame(0);
@@ -63,6 +64,7 @@ function mousePressed(){
     }
 
 }
+  }
 }
 
 function showPaint(n){

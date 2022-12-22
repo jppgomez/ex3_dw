@@ -49,25 +49,31 @@
     </div>
     <div class="skills_1">
         <h2>Design</h2>
-        <ul class="tools_design">
-            <li>Photoshop</li>
-            <li>Illustrator</li>
-            <li>Indesign</li>
-            <li>Premier Pro</li>
-            <li>After Effects</li>
-            <li>Audition</li>
-            <li>Figma</li>
+        <ul class="design_skills_ul">
+            <li onclick="design_skills_bar(0)">Ps</li>
+            <li onclick="design_skills_bar(1)">Ai</li>
+            <li onclick="design_skills_bar(2)">Id</li>
+            <li onclick="design_skills_bar(3)">Pr</li>
+            <li onclick="design_skills_bar(4)">Ae</li>
+            <li onclick="design_skills_bar(5)">Au</li>
+            <li onclick="design_skills_bar(6)">Figma</li>
         </ul>
+        <div class="design_skills_container">
+            <div class="design_skills_bar"></div>
+        </div>
     </div>
     <div class="skills_2">
         <h2>Programação</h2>
-        <ul class="tools_prog">
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>PHP</li>
-            <li>Processing</li>
+        <ul class="prog_skills_ul">
+            <li onclick="prog_skills_bar(0)">HTML</li>
+            <li onclick="prog_skills_bar(1)">CSS</li>
+            <li onclick="prog_skills_bar(2)">JS</li>
+            <li onclick="prog_skills_bar(3)">PHP</li>
+            <li onclick="prog_skills_bar(4)">Processing</li>
         </ul>
+        <div class="prog_skills_container">
+            <div class="prog_skills_bar"></div>
+        </div>
     </div>
     <div class="about_images">
             <canvas class="about_img_3d" id="canvas3d_about_images"></canvas>
@@ -91,7 +97,7 @@
       }
     </script>
     <script type="module" src="../scripts/3d.js"></script>
-    <script type="module" src="../scripts/about.js"></script>
+    <script src="../scripts/about.js"></script>
     <script src="../scripts/sketch.js"></script>
     </body>
     <footer>
