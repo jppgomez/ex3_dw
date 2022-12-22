@@ -102,6 +102,20 @@ ul li {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: rgb(220, 220, 220);
   color: transparent;
+  width: 100%;
+  height: 50;
+  text-align: center;
+}
+
+[class*=skills_ul] .hide {
+  visibility: hidden;
+}
+[class*=skills_ul] img {
+  position: relative;
+  width: 100%;
+  height: 200%;
+  top: -122%;
+  z-index: -1;
 }
 
 [class*=skills_container] {
@@ -111,9 +125,10 @@ ul li {
   border: solid rgb(220, 220, 220) 1px;
 }
 [class*=skills_container] [class*=skills_bar] {
-  width: 50%;
+  width: 0%;
   height: 100%;
   background-color: rgb(220, 220, 220);
+  transition: width 1s;
 }
 
 .about_images {
