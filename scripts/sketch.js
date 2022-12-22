@@ -11,8 +11,8 @@ let words = [];
 
 
 function preload(){
-  text_font = loadFont("../assets/lack-regular.otf");
-  paint_font = loadFont("../assets/baguette.otf");
+  text_font = loadFont("../assets/fonts/lack-regular.otf");
+  paint_font = loadFont("../assets/fonts/baguette.otf");
   for(let k=0; k<13; k++) {
     clicked_text[k] = "a"//loadImage("../assets/text-gifs/"+k+".gif");
   }
@@ -31,11 +31,12 @@ function setup() {
 
 function draw() {
   background(color('#0c0c0c'));
+  cursor("../assets/cursor/cursor.png");
   //console.log(clicked_text[0].width);
   for(let w=0; w<words.length; w++){
     let bbx = text_font.textBounds(words[w].text, words[w].px, words[w].py);
     if(mouseX >= words[w].px && mouseX <= words[w].px + bbx.w && mouseY >= words[w].py-bbx.h && mouseY <= words[w].py){
-      //showPaint(w);
+      cursor("../assets/cursor/hand.png");
     }
     words[w].desenha();
     words[w].move();

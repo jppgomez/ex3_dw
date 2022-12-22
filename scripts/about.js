@@ -118,3 +118,75 @@ function prog_skills_bar(n){
         }
 
         }
+
+        if(document.querySelector('body').style.cursor == ""){
+
+        }
+        console.log(document.querySelector('.body_about'));
+        var boxes = [],
+        mouse = {x: 0, y: 0};
+
+        var Box = function() {
+            this.x = 0;
+            this.y = 0;
+            this.node = (function(){
+            var n = document.createElement("div");
+            n.className = "trail";
+            document.body.appendChild(n);
+            return n;
+            }());};
+
+            Box.prototype.draw = function() {
+                this.node.style.left = this.x + "px";
+                this.node.style.top = this.y + "px";
+            };
+
+
+            for (var i = 0; i < 21; i++) {
+                var b = new Box();
+                boxes.push(b);
+            }
+
+
+        function draw_trail() {
+        let x = mouse.x, y = mouse.y;
+
+
+        boxes.forEach(function(box, index, boxes) {
+            let nextBox = boxes[index + 1] || boxes[0];
+            box.x = x;
+            box.y = y;
+            box.draw();
+            x += (nextBox.x - box.x) * .2;
+            y += (nextBox.y - box.y) * .2   ;
+
+            });
+            }
+
+        addEventListener("mousemove", function(event) {
+            mouse.x = event.pageX;
+            mouse.y = event.pageY;
+        });
+
+        function animate() {
+            draw_trail();
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+        //based on the example: "JavaScript mouse trail" by Ryan Boone
+        //(available on https://codepen.io/falldowngoboone/pen/PwzPYv)
+
+        //footer
+      function loadRandomFact(){
+        let h3 = document.querySelector('.footer_info');
+        fetch('https://api.api-ninjas.com/v1/facts?limit=1', {
+        method: 'GET',
+        headers: {
+            'X-Api-Key': '5EH1KpqkP3RpPYPnrNFPoQ==OEiiDxqLieooHqb5'
+            },
+        contentType: 'application/json',
+        }).then(response => response.json())
+        .then(data => h3.innerText = data[0].fact)
+        .catch(err => console.error(err));
+      }

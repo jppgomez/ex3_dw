@@ -6,6 +6,7 @@
   left: 0;
   justify-content: center;
   align-items: center;
+  cursor: hide;
 }
 #loader img {
   width: 70%;
@@ -27,10 +28,15 @@ body {
        column-gap: 1.5625vw;
   grid-template-columns: repeat(9, 9.6875vw);
   row-gap: 1.5625vw;
+  cursor: url("../assets/cursor.svg"), auto;
 }
 
 .body_about {
   grid-template-rows: repeat(19, 11.9444444444vh);
+}
+
+a {
+  cursor: url("../assets/hand.svg"), auto;
 }
 
 header {
@@ -118,6 +124,7 @@ ul li {
   width: 100%;
   height: 50;
   text-align: center;
+  cursor: url("../assets/hand.svg"), auto;
 }
 
 [class*=skills_ul] .hide {
@@ -168,6 +175,7 @@ ul li {
 [class*=education_dates_ul] li {
   text-align: left;
   display: inline-flex;
+  cursor: url("../assets/hand.svg"), auto;
 }
 [class*=education_dates_ul] .hide {
   visibility: hidden;
@@ -205,6 +213,9 @@ footer {
   align-items: center;
   justify-content: center;
 }
+footer h3 {
+  cursor: url("../assets/hand.svg"), auto;
+}
 
 .body_error {
   grid-template-rows: repeat(7, 11.9444444444vh);
@@ -238,4 +249,12 @@ footer {
 .error_sign {
   grid-column: 6/9;
   grid-row: 2/6;
+}
+
+.trail {
+  position: absolute;
+  height: 7.5px;
+  width: 7.5px;
+  background: #D90429;
+  z-index: -2;
 }/*# sourceMappingURL=style.css.map */

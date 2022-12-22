@@ -17,7 +17,7 @@ $desktop_gap: math.div(30px, 1920px)*100vw;
     left:0;
     justify-content: center;
     align-items: center;
-
+    cursor: hide;
     img{
         width: 70%;
     }
@@ -29,17 +29,22 @@ body{
     overflow-x:hidden;
     background-color: $bg_black;
     color: $white;
-    font-family: Lack, sans-serif;
+    font-family: $title_font;
     box-sizing: border-box;
     height:fit-content;
     display: grid;
     column-gap: $desktop_gap;
     grid-template-columns: repeat(9, $desktop_col);
     row-gap: $desktop_gap;
+    cursor: url('../assets/cursor/cursor.svg'), auto;
 }
 
 .body_about{
     grid-template-rows: repeat(19, $desktop_row);
+}
+
+a{
+    cursor: url('../assets/cursor/hand.svg'), auto;
 }
 
 header{
@@ -138,6 +143,7 @@ ul{
         width:100%;
         height: 50;
         text-align:center;
+        cursor: url('../assets/cursor/hand.svg'), auto;
     }
 }
 
@@ -194,6 +200,7 @@ ul{
     li{
         text-align:left;
         display: inline-flex;
+        cursor: url('../assets/cursor/hand.svg'), auto;
     }
        
     .hide{
@@ -233,6 +240,10 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
+
+    h3{
+        cursor: url('../assets/cursor/hand.svg'), auto;
+    }
 }
 
 .body_error{
@@ -269,3 +280,10 @@ footer{
     grid-row: 2 / 6;
 }
 
+.trail {
+    position: absolute;
+    height: 7.5px; 
+    width: 7.5px;
+    background: $red;
+    z-index: -2;
+  }
