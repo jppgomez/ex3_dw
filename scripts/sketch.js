@@ -31,12 +31,12 @@ function setup() {
 
 function draw() {
   background(color('#0c0c0c'));
-  cursor("../assets/cursor/cursor.png");
+  cursor("../assets/cursors/cursor.png");
   //console.log(clicked_text[0].width);
   for(let w=0; w<words.length; w++){
     let bbx = text_font.textBounds(words[w].text, words[w].px, words[w].py);
     if(mouseX >= words[w].px && mouseX <= words[w].px + bbx.w && mouseY >= words[w].py-bbx.h && mouseY <= words[w].py){
-      cursor("../assets/cursor/hand.png");
+      cursor("../assets/cursors/hand.png");
     }
     words[w].desenha();
     words[w].move();
