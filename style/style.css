@@ -1,3 +1,16 @@
+#loader {
+  width: 100vw;
+  display: flex;
+  position: absolute;
+  top: 11.9444444444vh;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+}
+#loader img {
+  width: 70%;
+}
+
 body {
   width: 100vw;
   margin: 0;
