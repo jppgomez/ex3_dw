@@ -188,13 +188,22 @@ ul li {
 .about_contacts {
   grid-column: 2/9;
   grid-row: 16/18;
-  background-color: yellow;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.about_contacts img {
+  width: 4.84375vw;
+  margin: 5% 0;
 }
 
 footer {
-  background-color: green;
+  border-top: solid rgb(220, 220, 220) 1px;
   grid-column: 1/10;
   grid-row: 19/20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .body_error {
