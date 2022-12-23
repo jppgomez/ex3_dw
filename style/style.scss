@@ -9,6 +9,11 @@ $desktop_col: math.div(186px, 1920px)*100vw;
 $desktop_row: math.div(129px, 1080px)*100vh;
 $desktop_gap: math.div(30px, 1920px)*100vw;
 
+html{
+    background-color: $bg_black;
+    background-image: url("../assets/texture.gif");
+}
+
 #loader{
     width:100vw;
     display:flex;
@@ -27,7 +32,7 @@ body{
     width:100vw;
     margin: 0;
     overflow-x:hidden;
-    background-color: $bg_black;
+    //background-color: $bg_black;
     color: $white;
     font-family: $title_font;
     box-sizing: border-box;
@@ -104,6 +109,7 @@ div{
     align-items: center;
     
     border-bottom: $white 1px solid;
+    border-top: $white 1px solid;
 
 }
 

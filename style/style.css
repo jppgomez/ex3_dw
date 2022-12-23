@@ -1,3 +1,8 @@
+html {
+  background-color: #0c0c0c;
+  background-image: url("../assets/texture.gif");
+}
+
 #loader {
   width: 100vw;
   display: flex;
@@ -16,7 +21,6 @@ body {
   width: 100vw;
   margin: 0;
   overflow-x: hidden;
-  background-color: #0c0c0c;
   color: rgb(220, 220, 220);
   font-family: Lack, sans-serif;
   box-sizing: border-box;
@@ -87,6 +91,7 @@ header [class*="3d_icon"] {
   justify-content: center;
   align-items: center;
   border-bottom: rgb(220, 220, 220) 1px solid;
+  border-top: rgb(220, 220, 220) 1px solid;
 }
 
 .design_skills {

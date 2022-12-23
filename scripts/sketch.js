@@ -14,7 +14,7 @@ function preload(){
   text_font = loadFont("../assets/fonts/lack-regular.otf");
   paint_font = loadFont("../assets/fonts/baguette.otf");
   for(let k=0; k<13; k++) {
-    clicked_text[k] = "a"//loadImage("../assets/text-gifs/"+k+".gif");
+    clicked_text[k] = loadImage("../assets/text-gifs/"+k+".gif");
   }
 }
 
@@ -24,13 +24,12 @@ function setup() {
   for(let i=0; i<click_text.length; i++) words[i] = new Words(click_text[i], random(w/6,w-w/6), random(h/6,h-h/6), true, random(1,3), int(random(1,3)), int(random(1,3))); 
   for(let j=click_text.length; j<click_text.length+base_text.length; j++) words[j] = new Words(base_text[j-click_text.length], random(w/6,w-w/6), random(h/6,h-h/6), false, random(1,3), int(random(1,3)), int(random(1,3)));  
   for(let l=0; l<clicked_text.length; l++) selected_text[l] = false;
-
   text_gif_width = w-w/5;
   text_gif_height = text_gif_width*843 / 1914;
 }
 
 function draw() {
-  background(color('#0c0c0c'));
+  background(color('rgba(12,12,12,1)'));
   cursor("../assets/cursors/cursor.png");
   //console.log(clicked_text[0].width);
   for(let w=0; w<words.length; w++){
