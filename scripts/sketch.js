@@ -4,6 +4,7 @@ let text_gif_width, text_gif_height;
 
 let about_text = "ESTA É A PÁGINA INFORMATIVA SOBRE UM DE UMA NUM ESTE JOVEM NASCEU NUMA O QUE O FAZ TER UMA ATUALMENTE VIVE NUMA ONDE ESTUDA NUM DE UMA ELE TRABALHA NA TENDO ALGUNS";
 let click_text = ["JOVEM", "VILA", "PAÍS", "DATA", "IDADE", "CIDADE", "CURSO", "UNIVERSIDADE", "ESPECIALIDADE", "INTERESSES"];
+let base_text;
 let clicked_text = [];
 let selected_text = [];
 let current_gif_text;
@@ -14,13 +15,14 @@ function preload(){
   text_font = loadFont("../assets/fonts/lack-regular.otf");
   paint_font = loadFont("../assets/fonts/baguette.otf");
   for(let k=0; k<13; k++) {
-    clicked_text[k] = loadImage("../assets/text-gifs/"+k+".gif");
+    clicked_text[k] = createVideo(["../assets/text-gifs/webm/"+k+".webm", "../assets/text-gifs/mov/"+k+".mov"]);
+    clicked_text[k].hide();
   }
 }
 
 function setup() {
   createCanvas(w, h).parent('about_text');
-  let base_text = split(about_text, " ");
+  base_text = split(about_text, " ");
   for(let i=0; i<click_text.length; i++) words[i] = new Words(click_text[i], random(w/6,w-w/6), random(h/6,h-h/6), true, random(1,3), int(random(1,3)), int(random(1,3))); 
   for(let j=click_text.length; j<click_text.length+base_text.length; j++) words[j] = new Words(base_text[j-click_text.length], random(w/6,w-w/6), random(h/6,h-h/6), false, random(1,3), int(random(1,3)), int(random(1,3)));  
   for(let l=0; l<clicked_text.length; l++) selected_text[l] = false;
@@ -35,7 +37,7 @@ function draw() {
   for(let w=0; w<words.length; w++){
     let bbx = text_font.textBounds(words[w].text, words[w].px, words[w].py);
     if(mouseX >= words[w].px && mouseX <= words[w].px + bbx.w && mouseY >= words[w].py-bbx.h && mouseY <= words[w].py){
-      cursor("../assets/cursors/hand.png");
+      if(w >= 0 && w < click_text.length) cursor("../assets/cursors/hand.png");
     }
     words[w].desenha();
     words[w].move();
@@ -44,7 +46,7 @@ function draw() {
     if(selected_text[n]){
       imageMode(CENTER);
       image(clicked_text[current_gif_text], w/2, h/2, text_gif_width, text_gif_height);
-      if(clicked_text[current_gif_text].getCurrentFrame() >= clicked_text[current_gif_text].numFrames()-1) clicked_text[current_gif_text].pause(); 
+      if(clicked_text[current_gif_text].time() >= clicked_text[current_gif_text].duration()) clicked_text[current_gif_text].stop(); 
     }
   }
 
@@ -53,8 +55,7 @@ function draw() {
 function mousePressed(){
   if(mouseX >= 0 && mouseX <= w && mouseY >= 0 && mouseY <= h){
   for(let l=0; l<clicked_text.length; l++) {
-    clicked_text[l].pause();
-    clicked_text[l].setFrame(0);
+    clicked_text[l].stop();
     selected_text[l] = false;
   }
   for(let w=0; w<click_text.length; w++){
