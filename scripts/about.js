@@ -122,7 +122,7 @@ function prog_skills_bar(n){
         if(document.querySelector('body').style.cursor == ""){
 
         }
-        console.log(document.querySelector('.body_about'));
+        //console.log(document.querySelector('.body_about'));
         var boxes = [],
         mouse = {x: 0, y: 0};
 

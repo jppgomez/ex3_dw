@@ -1,295 +1,571 @@
 @use "sass:math";
 $bg_black: #0c0c0c;
 $accent_black: #1B1B1B;
-$white: rgb(220,220,220);
+$white: rgb(220, 220, 220);
 $red: #D90429;
 $title_font: Lack, sans-serif;
 $script_font: Baguette, cursive;
-$desktop_col: math.div(186px, 1920px)*100vw;
-$desktop_row: math.div(129px, 1080px)*100vh;
-$desktop_gap: math.div(30px, 1920px)*100vw;
 
-html{
+html {
     background-color: $bg_black;
     background-image: url("../assets/texture.gif");
 }
 
-#loader{
-    width:100vw;
-    display:flex;
-    position:absolute;
-    top:$desktop_row;
-    left:0;
+#loader {
+    width: 100vw;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
     justify-content: center;
     align-items: center;
     cursor: hide;
-    img{
+
+    img {
         width: 70%;
     }
 }
 
-body{
-    width:100vw;
-    margin: 0;
-    overflow-x:hidden;
-    //background-color: $bg_black;
-    color: $white;
-    font-family: $title_font;
-    box-sizing: border-box;
-    height:fit-content;
-    display: grid;
-    column-gap: $desktop_gap;
-    grid-template-columns: repeat(9, $desktop_col);
-    row-gap: $desktop_gap;
-    cursor: url('../assets/cursors/cursor.svg'), auto;
-}
-
-.body_about{
-    grid-template-rows: repeat(19, $desktop_row);
-}
-
-a{
-    cursor: url('../assets/cursors/hand.svg'), auto;
-}
-
-header{
-    display:grid;
-    border: $desktop_gap /5 0px;
-    grid-template: inherit;
-    grid-gap: inherit;
-
-    grid-column: 1 / 10;
-    grid-row: 1 / 2;
-    filter: drop-shadow(0px 5px 5px #171717);
-    font-size: $desktop_gap / 2;
-
-    border-bottom: $white 1px solid;
-
-    a{
-        display: flex;
+@mixin style($grid_col, $grid_row, $grid_gap) {
+    body {
+        width: 100vw;
+        margin: 0;
+        overflow-x: hidden;
+        //background-color: $bg_black;
         color: $white;
-        text-decoration:none;
-        text-align: center;
-        width: $desktop_col;
-        height: $desktop_row;
-        flex-direction: column;
-        align-items:center;
-        justify-content: space-evenly;
+        font-family: $title_font;
+        box-sizing: border-box;
+        height: fit-content;
+        display: grid;
+        column-gap: $grid_gap;        
+        row-gap: $grid_gap;
+        cursor: url('../assets/cursors/cursor.svg'), auto;
     }
-    [class*="header"]{
+
+    a {
+        cursor: url('../assets/cursors/hand.svg'), auto;
+    }
+
+    header {
+        display: grid;
+        border: $grid_gap /5 0px;
+        grid-template: inherit;
+        grid-gap: inherit;
+        filter: drop-shadow(0px 5px 5px #171717);
+        font-size: $grid_gap / 2;
+
+        border-bottom: $white 1px solid;
+
+        a {
+            display: flex;
+            color: $white;
+            text-decoration: none;
+            text-align: center;
+            width: $grid_col;
+            height: $grid_row;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        [class*="header"] {
+            display: flex;
+            justify-items: center;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        [class*="3d_icon"] {
+            width: $grid_col;
+            height: $grid_row;
+        }
+    }
+
+    [class*='about_text'] {
         display: flex;
-        justify-items: center;
-        flex-direction: column;
-        justify-content: space-around;
+        font-size: $grid_col / 5;
+        text-align: center;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
         align-items: center;
+
+        border-bottom: $white 1px solid;
+        border-top: $white 1px solid;
+
     }
-    [class*="design"]{
-        grid-column: 3 / 4;
+
+    .design_skills {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
-    [class*="3d_icon"]{
-        width: $desktop_col;
-        height: $desktop_row;
-}
-}
-
-div{
-    //border: solid red 1px;
-}
-
-[class*='about_text']{
-    display: flex;
-    font-size: $desktop_col / 5;
-    grid-column: 1 / 10;
-    grid-row:  2 / 8;
-    text-align: center;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    
-    border-bottom: $white 1px solid;
-    border-top: $white 1px solid;
-
-}
-
-.design_skills{
-    grid-column: 2 / 5;
-    grid-row: 8 / 11;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.prog_skills{
-    grid-column: 2 / 5;
-    grid-row: 11 / 14;
-    display: flex;
-    flex-direction: column;
-
-}
-
-h2{
-    text-align:center;
-    font-size: 5 * $desktop_gap / 4;
-}
-
-ul{
-    list-style: none;
-    padding: 0;
-    display: inline-flex;
-    width:100%;
-    justify-content: space-evenly;
-    
-    li {
-        font-size: 7* $desktop_gap / 8;
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: $white;
-        color:transparent;
-        width:100%;
-        height: 50;
-        text-align:center;
-        cursor: url('../assets/cursors/hand.svg'), auto;
+    .prog_skills {
+        display: flex;
+        flex-direction: column;
     }
-}
 
-[class*="skills_ul"]{
-    .hide{
-        visibility: hidden;
+    h2 {
+        text-align: center;
+        font-size: 5 * $grid_gap / 4;
     }
-    img{
-        position: relative;
-        width: 100%;
-        height: 200%;
-        top: -122%;
-        z-index:-1;
-    }
-}
 
-[class*="skills_container"]{
-    margin: 5% 10%;
-    width: 80%;
-    height: $desktop_gap;
-    border: solid $white 1px;
-    
-    [class*="skills_bar"]{
-        width:0%;
-        height:100%;
-        background-color: $white;
-        transition: width 1s;
-    }
-}
-
-.about_images{
-    grid-column: 5 / 9;
-    grid-row: 8 / 14;
-}
-
-.education{
-    grid-column: 2 / 9;
-    grid-row: 14 / 16;
-}
-
-[class*="education_container"]{
-    height: $desktop_gap;
-    border: solid $white 1px;
-    
-    [class*="education_bar"]{
-        width:0%;
-        height:100%;
-        background-color: $white;
-        transition: width 2s;
-    }
-}
-
-[class*="education_dates_ul"]{
-    li{
-        text-align:left;
+    ul {
+        list-style: none;
+        padding: 0;
         display: inline-flex;
-        cursor: url('../assets/cursors/hand.svg'), auto;
+        width: 100%;
+        justify-content: space-evenly;
+
+        li {
+            font-size: 7* $grid_gap / 8;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: $white;
+            color: transparent;
+            width: 100%;
+            height: 50;
+            text-align: center;
+            cursor: url('../assets/cursors/hand.svg'), auto;
+        }
     }
-       
-    .hide{
-        visibility: hidden;
+
+    [class*="skills_ul"] {
+        .hide {
+            visibility: hidden;
+        }
+
+        img {
+            position: relative;
+            width: 100%;
+            height: 200%;
+            top: -122%;
+            z-index: -1;
+        }
     }
-    img{
+
+    [class*="skills_container"] {
+        margin: 5% 10%;
+        width: 80%;
+        height: $grid_gap;
+        border: solid $white 1px;
+
+        [class*="skills_bar"] {
+            width: 0%;
+            height: 100%;
+            background-color: $white;
+            transition: width 1s;
+        }
+    }
+
+    [class*="education_container"] {
+        height: $grid_gap;
+        border: solid $white 1px;
+
+        [class*="education_bar"] {
+            width: 0%;
+            height: 100%;
+            background-color: $white;
+            transition: width 2s;
+        }
+    }
+
+    [class*="education_dates_ul"] {
+        li {
+            text-align: left;
+            display: inline-flex;
+            cursor: url('../assets/cursors/hand.svg'), auto;
+        }
+
+        .hide {
+            visibility: hidden;
+        }
+
+        img {
+            position: relative;
+            height: 210%;
+            top: -76%;
+            left: -18%;
+            z-index: -1;
+        }
+    }
+
+    .education_text {
+        text-align: center;
+        margin: 0;
+    }
+
+    .about_contacts {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        a{
+            text-align:center
+        }
+
+        img {
+            width: 40%;
+            margin: 5% 0;
+        }
+    }
+
+    footer {
+        border-top: solid $white 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        h3 {
+            cursor: url('../assets/cursors/hand.svg'), auto;
+        }
+    }
+
+    .body_error {
+        overflow-y: hidden;
+    }
+
+    .error_text {
         position: relative;
-        height: 210%;
-        top: -76%;
-        left: -16%;
-        z-index:-1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3*$grid_col + 2*$grid_gap;
+        z-index: 2;
+    }
+
+    .error_script {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: $red;
+        font-family: $script-font;
+        font-size: $grid_col;
+        line-height: 100%;
+    }
+
+    .trail {
+        position: absolute;
+        height: 7.5px;
+        width: 7.5px;
+        background: $red;
+        z-index: -2;
     }
 }
 
+@media (min-width: 1240px) {
+    @include style(
+    $grid_col: math.div(186px, 1920px)*100vw,
+    $grid_row: math.div(129px, 1080px)*100vh,
+    $grid_gap: math.div(30px, 1920px)*100vw,
+    );
 
-.education_text{
-    text-align:center;
-    margin: 0;
-}
+    $grid_col: math.div(186px, 1920px)*100vw;
+    $grid_row: math.div(129px, 1080px)*100vh;
+    $grid_gap: math.div(30px, 1920px)*100vw;
 
-.about_contacts{
-    grid-column: 2 / 9;
-    grid-row: 16 / 18;
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-evenly;
-    img{
-        width: $desktop_col / 2;
-        margin: 5% 0;
+    body{
+        grid-template-columns: repeat(9, $grid_col);
     }
-}
-
-footer{
-    border-top: solid $white 1px;
-    grid-column: 1 / 10;
-    grid-row: 19 / 20;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    h3{
-        cursor: url('../assets/cursors/hand.svg'), auto;
+    
+    .body_about {
+        grid-template-rows: repeat(19, $grid_row);
     }
-}
+    
+    header{
 
-.body_error{
-    grid-template-rows: repeat(7, $desktop_row);
-    overflow-y:hidden;
-}
+        h3{
+            display:none;
+        }
+    
+        .header_3d{
+            display:initial;
+        }
 
-.error_text{
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    grid-column: 2 / 5  ;
+        grid-column: 1 / 10;
+            grid-row: 1 / 2;
+    
+            [class*="design"] {
+                grid-column: 3 / 4;
+            }
+        }
+        
+    [class*='about_text'] {
+                grid-column: 1 / 10;
+                grid-row: 2 / 8;
+        }
+    
+    .design_skills {
+                grid-column: 2 / 5;
+                grid-row: 8 / 11;
+        }
+
+    .prog_skills {
+                grid-column: 2 / 5;
+                grid-row: 11 / 14;
+        }
+            
+    .about_images {
+            grid-column: 5 / 9;
+            grid-row: 8 / 14;
+        }
+    
+    .education {
+            grid-column: 2 / 9;
+            grid-row: 14 / 16;
+        }
+    
+    .about_contacts {
+            grid-column: 2 / 9;
+            grid-row: 16 / 18;
+        }
+
+    footer{
+            grid-column: 1 / 10;
+            grid-row: 19 / 20;
+        }
+        
+    .body_error {
+    grid-template-rows: repeat(7, $grid_row);
+    }
+
+    .error_text{
+    grid-column: 2 / 5;
     grid-row: 2 / 6;
-    width: 3*$desktop_col + 2*$desktop_gap;
-    z-index:2;
-}
+    }
 
-.error_script{
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: $red; 
-    font-family: $script-font;
-    font-size: $desktop_col;
-    grid-column: 2 / 5  ;
+    .error_script{
+    grid-column: 2 / 5;
     grid-row: 2 / 6;
-    line-height: 100%;
-}
+    }
 
-.error_sign{
+    .error_sign {
     grid-column: 6 / 9;
     grid-row: 2 / 6;
+    }
 }
 
-.trail {
-    position: absolute;
-    height: 7.5px; 
-    width: 7.5px;
-    background: $red;
-    z-index: -2;
-  }
+@media (min-width: 768px) and (max-width: 1240px) {
+    @include style(
+    $grid_col: math.div(111px, 960px)*100vw,
+    $grid_row: math.div(129px, 1440px)*100vh,
+    $grid_gap: math.div(30px, 1440px)*100vw,
+    );
+
+    $grid_col: math.div(111px, 960px)*100vw;
+    $grid_row: math.div(129px, 1440px)*100vh;
+    $grid_gap: math.div(30px, 1440px)*100vw;
+
+    body{
+        grid-template-columns: repeat(7, $grid_col);
+    }
+    
+    .body_about {
+        grid-template-rows: repeat(21, $grid_row);
+    }
+    
+    header{
+
+        h3{
+            display:none;
+        }
+    
+        .header_3d{
+            display:initial;
+        }
+
+        grid-column: 1 / 8;
+            grid-row: 1 / 2;
+    
+            [class*="design"] {
+                grid-column: 2 / 3;
+            }
+        }
+        
+    [class*='about_text'] {
+                grid-column: 1 / 8;
+                grid-row: 2 / 10;
+        }
+    
+    .design_skills {
+                grid-column: 3 / 6;
+                grid-row: 10 / 12;
+        }
+
+    .prog_skills {
+                grid-column: 3 / 6;
+                grid-row: 12 / 14;
+        }
+            
+    .about_images {
+            grid-column: 2 / 7;
+            grid-row: 14 / 18;
+        }
+    
+    .education {
+            grid-column: 2 / 7;
+            grid-row: 18 / 20;
+
+            [class*=education_dates_ul] li{
+              img{
+                    top: -80%;
+                    left: -30%;
+                }
+            }
+        }
+    
+    .about_contacts {
+            grid-column: 2 / 7;
+            grid-row: 20 / 21;
+        }
+
+    footer{
+            grid-column: 1 / 8;
+            grid-row: 21 / 22;
+        }
+        
+    .body_error {
+    grid-template-rows: repeat(10, $grid_row);
+    }
+
+    .error_text{
+    grid-column: 3 / 6;
+    grid-row: 2 / 5;
+    }
+
+    .error_script{
+    grid-column: 3 / 6;
+    grid-row: 2 / 5;
+    }
+
+    .error_sign {
+    grid-column: 2 / 8;
+    grid-row: 5 / 8;
+    }
+}
+
+@media (max-width: 768px) {
+    @include style(
+    $grid_col: math.div(18px, 360px)*100vw,
+    $grid_row: math.div(85px, 800px)*100vh,
+    $grid_gap: math.div(20px, 360px)*100vw,
+    );
+
+    $grid_col: math.div(18px, 360px)*100vw;
+    $grid_row: math.div(85px, 800px)*100vh;
+    $grid_gap: math.div(20px, 360px)*100vw;
+
+    html{
+        overflow-x: hidden;
+    }
+
+    body{
+        grid-template-columns: repeat(10, $grid_col); 
+    }
+    
+    .body_about {
+        grid-template-rows: repeat(23, $grid_row);
+    }
+    
+    
+    header{
+        grid-column: 1 / 11;
+        grid-row: 1 / 2;
+
+        [class*='3d_icon']{
+            display:flex;
+            align-items: center;
+            justify-content:center;
+
+        }
+    
+        .header_3d{
+            display:none;
+        }
+        
+            [class*="design"] {
+                grid-column: 1 / 3;
+            }
+            [class*="photo"] {
+                grid-column: 3 / 5;
+            }
+            [class*="home"] {
+                grid-column: 5 / 7;
+            }
+            [class*="about"] {
+                grid-column: 7 / 9;
+            }
+            [class*="contacts"] {
+                grid-column: 9 / 11;
+            }
+
+        }
+        
+    [class*='about_text'] {
+                grid-column: 1 / 11;
+                grid-row: 2 / 9;
+        }
+    
+    .design_skills {
+                grid-column: 2 / 10;
+                grid-row: 9 / 12;
+        }
+
+    .prog_skills {
+                grid-column: 2 / 10;
+                grid-row: 12 / 15;
+        }
+            
+    .about_images {
+            grid-column: 2 / 10;
+            grid-row: 15 / 20;
+        }
+    
+    .education {
+            grid-column: 2 / 10;
+            grid-row: 20 / 23;
+
+            [class*=education_dates_ul] li{
+                display: initial;
+
+                img{
+                    top: -120%;
+                }
+            }
+        }
+    
+    .about_contacts {
+            grid-column: 2 / 10;
+            grid-row: 22 / 23;
+        }
+
+    footer{
+            grid-column: 1 / 11;
+            grid-row: 23 / 24;
+        }
+        
+    .body_error {
+    grid-template-rows: repeat(8, $grid_row);
+    }
+
+    .error_text{
+    grid-column: 4 / 8;
+    grid-row: 2 / 5;
+    font-size: 100%;
+    }
+
+    .error_script{
+    grid-column: 4 / 8;
+    grid-row: 2 / 5;
+    font-size: 550%;
+    }
+
+    .error_sign {
+    grid-column: 2 / 10;
+    grid-row: 5 / 7;
+    }
+}
+

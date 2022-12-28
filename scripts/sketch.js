@@ -87,7 +87,7 @@ class Words{
   }
 desenha(){
   textFont(text_font);
-  textSize(w/50);
+  textSize(h/30);
   if(this.style3D == false){
     fill(255);
     text(this.text, this.px, this.py);
@@ -119,5 +119,5 @@ function windowResized(){
   textSize(w/35);
 
   text_gif_width = w-w/5;
-  text_gif_height = img_width*843 / 1914;
+  text_gif_height = text_gif_width*843 / 1914;
 }
