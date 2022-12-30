@@ -12,10 +12,10 @@ let words = [];
 
 
 function preload(){
-  text_font = loadFont("../assets/fonts/lack-regular.otf");
-  paint_font = loadFont("../assets/fonts/baguette.otf");
+  text_font = loadFont("assets/fonts/lack-regular.otf");
+  paint_font = loadFont("assets/fonts/baguette.otf");
   for(let k=0; k<13; k++) {
-    clicked_text[k] = createVideo(["../assets/text-gifs/webm/"+k+".webm", "../assets/text-gifs/mov/"+k+".mov"]);
+    clicked_text[k] = createVideo(["assets/text-gifs/webm/"+k+".webm", "assets/text-gifs/mov/"+k+".mov"]);
     clicked_text[k].hide();
   }
 }
@@ -32,12 +32,12 @@ function setup() {
 
 function draw() {
   background(color('rgba(12,12,12,1)'));
-  cursor("../assets/cursors/cursor.png");
+  cursor("assets/cursors/cursor.png");
   //console.log(clicked_text[0].width);
   for(let w=0; w<words.length; w++){
     let bbx = text_font.textBounds(words[w].text, words[w].px, words[w].py);
     if(mouseX >= words[w].px && mouseX <= words[w].px + bbx.w && mouseY >= words[w].py-bbx.h && mouseY <= words[w].py){
-      if(w >= 0 && w < click_text.length) cursor("../assets/cursors/hand.png");
+      if(w >= 0 && w < click_text.length) cursor("assets/cursors/hand.png");
     }
     words[w].desenha();
     words[w].move();
