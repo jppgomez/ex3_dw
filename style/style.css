@@ -180,6 +180,9 @@ html {
     justify-content: center;
   }
   footer h3 {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(220, 220, 220);
+    color: transparent;
     cursor: url("../assets/cursors/hand.svg"), auto;
   }
   .body_error {
@@ -285,9 +288,9 @@ html {
     height: -moz-fit-content;
     height: fit-content;
     display: grid;
-    -moz-column-gap: 2.0833333333vw;
-         column-gap: 2.0833333333vw;
-    row-gap: 2.0833333333vw;
+    -moz-column-gap: 3.125vw;
+         column-gap: 3.125vw;
+    row-gap: 3.125vw;
     cursor: url("../assets/cursors/cursor.svg"), auto;
   }
   a {
@@ -295,11 +298,11 @@ html {
   }
   header {
     display: grid;
-    border: 0.4166666667vw 0px;
+    border: 0.625vw 0px;
     grid-template: inherit;
     grid-gap: inherit;
     filter: drop-shadow(0px 5px 5px #171717);
-    font-size: 1.0416666667vw;
+    font-size: 1.5625vw;
     border-bottom: rgb(220, 220, 220) 1px solid;
   }
   header a {
@@ -346,7 +349,7 @@ html {
   }
   h2 {
     text-align: center;
-    font-size: 2.6041666667vw;
+    font-size: 3.90625vw;
   }
   ul {
     list-style: none;
@@ -356,7 +359,7 @@ html {
     justify-content: space-evenly;
   }
   ul li {
-    font-size: 1.8229166667vw;
+    font-size: 2.734375vw;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgb(220, 220, 220);
     color: transparent;
@@ -378,7 +381,7 @@ html {
   [class*=skills_container] {
     margin: 5% 10%;
     width: 80%;
-    height: 2.0833333333vw;
+    height: 3.125vw;
     border: solid rgb(220, 220, 220) 1px;
   }
   [class*=skills_container] [class*=skills_bar] {
@@ -388,7 +391,7 @@ html {
     transition: width 1s;
   }
   [class*=education_container] {
-    height: 2.0833333333vw;
+    height: 3.125vw;
     border: solid rgb(220, 220, 220) 1px;
   }
   [class*=education_container] [class*=education_bar] {
@@ -435,6 +438,9 @@ html {
     justify-content: center;
   }
   footer h3 {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(220, 220, 220);
+    color: transparent;
     cursor: url("../assets/cursors/hand.svg"), auto;
   }
   .body_error {
@@ -445,7 +451,7 @@ html {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 38.8541666667vw;
+    width: 40.9375vw;
     z-index: 2;
   }
   .error_script {
@@ -694,6 +700,9 @@ html {
     justify-content: center;
   }
   footer h3 {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(220, 220, 220);
+    color: transparent;
     cursor: url("../assets/cursors/hand.svg"), auto;
   }
   .body_error {

@@ -219,6 +219,9 @@ html {
         justify-content: center;
 
         h3 {
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: $white;
+            color: transparent;
             cursor: url('../assets/cursors/hand.svg'), auto;
         }
     }
@@ -352,12 +355,12 @@ html {
     @include style(
     $grid_col: math.div(111px, 960px)*100vw,
     $grid_row: math.div(129px, 1440px)*100vh,
-    $grid_gap: math.div(30px, 1440px)*100vw,
+    $grid_gap: math.div(30px, 960px)*100vw,
     );
 
     $grid_col: math.div(111px, 960px)*100vw;
     $grid_row: math.div(129px, 1440px)*100vh;
-    $grid_gap: math.div(30px, 1440px)*100vw;
+    $grid_gap: math.div(30px, 960px)*100vw;
 
     body{
         grid-template-columns: repeat(7, $grid_col);
